@@ -1,13 +1,13 @@
-import type { AuthenticatedRequest } from "../../../src/types/index.js";
+import type { AuthenticatedRequest } from "../../../../src/types/index.js";
 import express, { type Request, type Response } from "express";
-import { databaseLogger } from "../../../src/backend/utils/logger.js";
-import { AuthManager } from "../../../src/backend/utils/auth-manager.js";
-import { createCurrentWorkspaceRepository } from "../../../src/backend/database/repositories/factory.js";
-import type { WorkspaceRecord } from "../../../src/backend/database/repositories/workspace-repository.js";
+import { databaseLogger } from "../../../../src/backend/utils/logger.js";
+import { AuthManager } from "../../../../src/backend/utils/auth-manager.js";
+import { createCurrentWorkspaceRepository } from "../../../../src/backend/database/repositories/factory.js";
+import type { WorkspaceRecord } from "../../../../src/backend/database/repositories/workspace-repository.js";
 import {
   registerWorkspacesRouter,
   unregisterWorkspacesRouter,
-} from "../../../src/backend/database/routes/workspace-dispatch.js";
+} from "../../../../src/backend/database/routes/workspace-dispatch.js";
 
 export const router = express.Router();
 
