@@ -13,19 +13,16 @@ import {
   Settings2,
   Star,
   Trash2,
-  X,
 } from "lucide-react";
 import {
   Badge,
   Button,
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
   FOLDER_COLORS,
   Input,
+  useConfirm,
+  InlineView,
+  EmptyState,
+  PanelSearch,
 } from "@termix/plugin-sdk/ui";
 import { createWorkspacesApi, type WorkspacesApi } from "./workspaces-api";
 import { errorMessage, type Workspace } from "./types";
@@ -80,57 +77,12 @@ function WorkspaceSaveDialog({
   }
 
   return (
-    <Dialog open={open} onOpenChange={(next) => !next && onClose()}>
-      <DialogContent className="sm:max-w-md">
-        <DialogHeader>
-          <DialogTitle>
-            {t("newUi.sidebar.workspaces.saveCurrentTitle")}
-          </DialogTitle>
-          <DialogDescription>
-            {t("newUi.sidebar.workspaces.saveCurrentDescription")}
-          </DialogDescription>
-        </DialogHeader>
-
-        <div className="flex flex-col gap-3">
-          <div className="flex flex-col gap-1.5">
-            <label className="text-xs text-muted-foreground">
-              {t("newUi.sidebar.workspaces.nameLabel")}
-            </label>
-            <Input
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder={t("newUi.sidebar.workspaces.namePlaceholder")}
-              autoFocus
-              onKeyDown={(e) => {
-                if (e.key === "Enter") handleSave();
-              }}
-            />
-          </div>
-
-          <div className="flex flex-col gap-1.5">
-            <label className="text-xs text-muted-foreground">
-              {t("newUi.sidebar.workspaces.colorLabel")}
-            </label>
-            <div className="flex gap-1.5">
-              {FOLDER_COLORS.map((c) => (
-                <button
-                  key={c}
-                  type="button"
-                  onClick={() => setColor(c)}
-                  className={`size-6 transition-all ${
-                    color === c
-                      ? "ring-2 ring-offset-2 ring-offset-background ring-white/50"
-                      : "opacity-75 hover:opacity-100"
-                  }`}
-                  style={{ backgroundColor: c }}
-                  aria-label={c}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <DialogFooter>
+    <InlineView
+      open={open}
+      onOpenChange={(next) => !next && onClose()}
+      title={t("newUi.sidebar.workspaces.saveCurrentTitle")}
+      footer={
+        <div className="ml-auto flex flex-wrap items-center justify-end gap-2">
           <Button variant="outline" onClick={onClose}>
             {t("common.cancel")}
           </Button>
@@ -143,9 +95,51 @@ function WorkspaceSaveDialog({
             {saving && <Loader2 className="size-3.5 mr-2 animate-spin" />}
             {t("common.save")}
           </Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+        </div>
+      }
+    >
+      <p className="text-xs text-muted-foreground">
+        {t("newUi.sidebar.workspaces.saveCurrentDescription")}
+      </p>
+      <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-1.5">
+          <label className="text-xs text-muted-foreground">
+            {t("newUi.sidebar.workspaces.nameLabel")}
+          </label>
+          <Input
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder={t("newUi.sidebar.workspaces.namePlaceholder")}
+            autoFocus
+            onKeyDown={(e) => {
+              if (e.key === "Enter") handleSave();
+            }}
+          />
+        </div>
+
+        <div className="flex flex-col gap-1.5">
+          <label className="text-xs text-muted-foreground">
+            {t("newUi.sidebar.workspaces.colorLabel")}
+          </label>
+          <div className="flex gap-1.5">
+            {FOLDER_COLORS.map((c) => (
+              <button
+                key={c}
+                type="button"
+                onClick={() => setColor(c)}
+                className={`size-6 transition-all ${
+                  color === c
+                    ? "ring-2 ring-offset-2 ring-offset-background ring-white/50"
+                    : "opacity-75 hover:opacity-100"
+                }`}
+                style={{ backgroundColor: c }}
+                aria-label={c}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </InlineView>
   );
 }
 
@@ -192,51 +186,12 @@ function WorkspaceRenameDialog({
   }
 
   return (
-    <Dialog open={!!workspace} onOpenChange={(next) => !next && onClose()}>
-      <DialogContent className="sm:max-w-md">
-        <DialogHeader>
-          <DialogTitle>{t("newUi.sidebar.workspaces.rename")}</DialogTitle>
-        </DialogHeader>
-
-        <div className="flex flex-col gap-3">
-          <div className="flex flex-col gap-1.5">
-            <label className="text-xs text-muted-foreground">
-              {t("newUi.sidebar.workspaces.nameLabel")}
-            </label>
-            <Input
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              autoFocus
-              onKeyDown={(e) => {
-                if (e.key === "Enter") handleSave();
-              }}
-            />
-          </div>
-
-          <div className="flex flex-col gap-1.5">
-            <label className="text-xs text-muted-foreground">
-              {t("newUi.sidebar.workspaces.colorLabel")}
-            </label>
-            <div className="flex gap-1.5">
-              {FOLDER_COLORS.map((c) => (
-                <button
-                  key={c}
-                  type="button"
-                  onClick={() => setColor(c)}
-                  className={`size-6 transition-all ${
-                    color === c
-                      ? "ring-2 ring-offset-2 ring-offset-background ring-white/50"
-                      : "opacity-75 hover:opacity-100"
-                  }`}
-                  style={{ backgroundColor: c }}
-                  aria-label={c}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <DialogFooter>
+    <InlineView
+      open={!!workspace}
+      onOpenChange={(next) => !next && onClose()}
+      title={t("newUi.sidebar.workspaces.rename")}
+      footer={
+        <div className="ml-auto flex flex-wrap items-center justify-end gap-2">
           <Button variant="outline" onClick={onClose}>
             {t("common.cancel")}
           </Button>
@@ -249,9 +204,47 @@ function WorkspaceRenameDialog({
             {saving && <Loader2 className="size-3.5 mr-2 animate-spin" />}
             {t("common.save")}
           </Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+        </div>
+      }
+    >
+      <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-1.5">
+          <label className="text-xs text-muted-foreground">
+            {t("newUi.sidebar.workspaces.nameLabel")}
+          </label>
+          <Input
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            autoFocus
+            onKeyDown={(e) => {
+              if (e.key === "Enter") handleSave();
+            }}
+          />
+        </div>
+
+        <div className="flex flex-col gap-1.5">
+          <label className="text-xs text-muted-foreground">
+            {t("newUi.sidebar.workspaces.colorLabel")}
+          </label>
+          <div className="flex gap-1.5">
+            {FOLDER_COLORS.map((c) => (
+              <button
+                key={c}
+                type="button"
+                onClick={() => setColor(c)}
+                className={`size-6 transition-all ${
+                  color === c
+                    ? "ring-2 ring-offset-2 ring-offset-background ring-white/50"
+                    : "opacity-75 hover:opacity-100"
+                }`}
+                style={{ backgroundColor: c }}
+                aria-label={c}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </InlineView>
   );
 }
 
@@ -399,8 +392,8 @@ export function WorkspacesPanel({
   const [loading, setLoading] = useState(true);
   const [saveDialogOpen, setSaveDialogOpen] = useState(false);
   const [renameTarget, setRenameTarget] = useState<Workspace | null>(null);
-  const [deleteTarget, setDeleteTarget] = useState<Workspace | null>(null);
-  const [applyTarget, setApplyTarget] = useState<Workspace | null>(null);
+  const confirm = useConfirm();
+  const [query, setQuery] = useState("");
   const hasLoadedRef = useRef(false);
 
   const loadWorkspaces = useCallback(async () => {
@@ -477,12 +470,18 @@ export function WorkspacesPanel({
     }
   }
 
-  async function handleDelete() {
-    if (!deleteTarget) return;
+  async function handleDelete(workspace: Workspace) {
+    const ok = await confirm({
+      title: t("newUi.sidebar.workspaces.deleteWorkspaceTitle"),
+      description: t("newUi.sidebar.workspaces.deleteWorkspaceDescription", {
+        name: workspace.name,
+      }),
+      confirmLabel: t("common.delete"),
+    });
+    if (!ok) return;
     try {
-      await api.remove(deleteTarget.id);
+      await api.remove(workspace.id);
       toast.success(t("newUi.sidebar.workspaces.workspaceDeleted"));
-      setDeleteTarget(null);
       loadWorkspaces();
     } catch (error) {
       const message = errorMessage(error);
@@ -490,17 +489,23 @@ export function WorkspacesPanel({
     }
   }
 
-  function handleApplyClick(workspace: Workspace) {
-    setApplyTarget(workspace);
+  async function handleApplyClick(workspace: Workspace) {
+    const ok = await confirm({
+      title: t("newUi.sidebar.workspaces.applyConfirmTitle"),
+      description: t("newUi.sidebar.workspaces.applyConfirmDescription", {
+        name: workspace.name,
+      }),
+      confirmLabel: t("newUi.sidebar.workspaces.applyConfirmButton"),
+      destructive: false,
+    });
+    if (ok) onApplyWorkspace(workspace);
   }
 
-  function confirmApply() {
-    if (!applyTarget) return;
-    onApplyWorkspace(applyTarget);
-    setApplyTarget(null);
-  }
-
-  const manualWorkspaces = workspaces.filter((w) => w.kind === "manual");
+  const q = query.trim().toLowerCase();
+  const allManual = workspaces.filter((w) => w.kind === "manual");
+  const manualWorkspaces = q
+    ? allManual.filter((w) => w.name.toLowerCase().includes(q))
+    : allManual;
   const lastSession = workspaces.find((w) => w.kind === "last_session");
 
   return (
@@ -531,15 +536,32 @@ export function WorkspacesPanel({
         </Button>
       </div>
 
+      {allManual.length > 0 && (
+        <div className="shrink-0 border-b border-border px-3 py-2">
+          <PanelSearch
+            value={query}
+            onChange={setQuery}
+            placeholder={t("newUi.sidebar.workspaces.search")}
+            fill
+          />
+        </div>
+      )}
+
       <div className="flex-1 min-h-0 overflow-y-auto p-3">
         {loading ? (
           <div className="flex items-center justify-center py-8 text-muted-foreground">
             <Loader2 className="size-4 animate-spin" />
           </div>
-        ) : manualWorkspaces.length === 0 && !lastSession ? (
-          <div className="text-xs text-muted-foreground text-center py-8">
-            {t("newUi.sidebar.workspaces.noWorkspaces")}
-          </div>
+        ) : allManual.length === 0 && !lastSession ? (
+          <EmptyState
+            icon={LayoutTemplate}
+            title={t("newUi.sidebar.workspaces.noWorkspaces")}
+          />
+        ) : q && manualWorkspaces.length === 0 ? (
+          <EmptyState
+            icon={LayoutTemplate}
+            title={t("newUi.sidebar.workspaces.noMatches")}
+          />
         ) : (
           <div className="flex flex-col gap-1.5">
             {lastSession && (
@@ -547,7 +569,7 @@ export function WorkspacesPanel({
                 key={lastSession.id}
                 workspace={lastSession}
                 isLastSession
-                onApply={() => handleApplyClick(lastSession)}
+                onApply={() => void handleApplyClick(lastSession)}
                 onUpdateWithCurrent={() => {}}
                 onRename={() => {}}
                 onDuplicate={() => {}}
@@ -560,21 +582,22 @@ export function WorkspacesPanel({
                 key={workspace.id}
                 workspace={workspace}
                 isLastSession={false}
-                onApply={() => handleApplyClick(workspace)}
+                onApply={() => void handleApplyClick(workspace)}
                 onUpdateWithCurrent={() => {
-                  if (
-                    window.confirm(
-                      t("newUi.sidebar.workspaces.updateWithCurrentConfirm", {
-                        name: workspace.name,
-                      }),
-                    )
-                  ) {
-                    handleUpdateWithCurrent(workspace);
-                  }
+                  void confirm({
+                    title: t(
+                      "newUi.sidebar.workspaces.updateWithCurrentConfirm",
+                      { name: workspace.name },
+                    ),
+                    confirmLabel: t("common.save"),
+                    destructive: false,
+                  }).then((ok) => {
+                    if (ok) handleUpdateWithCurrent(workspace);
+                  });
                 }}
                 onRename={() => setRenameTarget(workspace)}
                 onDuplicate={() => handleDuplicate(workspace)}
-                onDelete={() => setDeleteTarget(workspace)}
+                onDelete={() => void handleDelete(workspace)}
                 onSetDefault={() => handleToggleDefault(workspace)}
               />
             ))}
@@ -594,63 +617,6 @@ export function WorkspacesPanel({
         onClose={() => setRenameTarget(null)}
         onSaved={loadWorkspaces}
       />
-
-      <Dialog
-        open={!!deleteTarget}
-        onOpenChange={(next) => !next && setDeleteTarget(null)}
-      >
-        <DialogContent className="sm:max-w-sm">
-          <DialogHeader>
-            <DialogTitle>
-              {t("newUi.sidebar.workspaces.deleteWorkspaceTitle")}
-            </DialogTitle>
-            <DialogDescription>
-              {t("newUi.sidebar.workspaces.deleteWorkspaceDescription", {
-                name: deleteTarget?.name,
-              })}
-            </DialogDescription>
-          </DialogHeader>
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setDeleteTarget(null)}>
-              {t("common.cancel")}
-            </Button>
-            <Button variant="destructive" onClick={handleDelete}>
-              <X className="size-3.5 mr-2" />
-              {t("common.delete")}
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-
-      <Dialog
-        open={!!applyTarget}
-        onOpenChange={(next) => !next && setApplyTarget(null)}
-      >
-        <DialogContent className="sm:max-w-sm">
-          <DialogHeader>
-            <DialogTitle>
-              {t("newUi.sidebar.workspaces.applyConfirmTitle")}
-            </DialogTitle>
-            <DialogDescription>
-              {t("newUi.sidebar.workspaces.applyConfirmDescription", {
-                name: applyTarget?.name,
-              })}
-            </DialogDescription>
-          </DialogHeader>
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setApplyTarget(null)}>
-              {t("common.cancel")}
-            </Button>
-            <Button
-              variant="outline"
-              className="border-accent-brand/40 text-accent-brand hover:bg-accent-brand/10 hover:text-accent-brand"
-              onClick={confirmApply}
-            >
-              {t("newUi.sidebar.workspaces.applyConfirmButton")}
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
     </div>
   );
 }

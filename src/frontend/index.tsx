@@ -41,6 +41,7 @@ export function activate(app: TermixApp): void {
     id: "workspaces",
     icon: LayoutTemplate,
     titleKey: "nav.workspaces",
+    group: "objects",
     after: "macros",
     permission: "use",
   });

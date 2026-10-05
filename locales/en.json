@@ -47,7 +47,9 @@
           "minutes": "{{count}}m ago",
           "hours": "{{count}}h ago",
           "days": "{{count}}d ago"
-        }
+        },
+        "search": "Search workspaces",
+        "noMatches": "No workspaces match your search"
       }
     }
   },
