@@ -1,6 +1,6 @@
 import { randomUUID } from "node:crypto";
 import { and, eq, ne } from "drizzle-orm";
-import type { PluginDatabase } from "@termix/plugin-sdk/backend";
+import type { PluginDatabase } from "@termix-ssh/plugin-sdk/backend";
 
 export type WorkspaceKind = "manual" | "last_session";
 

@@ -3,7 +3,7 @@ import {
   usePluginApi,
   useTranslation,
   type ShellLayout,
-} from "@termix/plugin-sdk/frontend";
+} from "@termix-ssh/plugin-sdk/frontend";
 import { toast } from "sonner";
 import {
   LayoutTemplate,
@@ -23,7 +23,7 @@ import {
   InlineView,
   EmptyState,
   PanelSearch,
-} from "@termix/plugin-sdk/ui";
+} from "@termix-ssh/plugin-sdk/ui";
 import { createWorkspacesApi, type WorkspacesApi } from "./workspaces-api";
 import { errorMessage, type Workspace } from "./types";
 

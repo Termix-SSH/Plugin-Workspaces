@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import type { PluginApiClient } from "@termix/plugin-sdk/frontend";
+import type { PluginApiClient } from "@termix-ssh/plugin-sdk/frontend";
 import { createWorkspacesApi } from "../../src/frontend/workspaces-api";
 
 function fakeClient() {

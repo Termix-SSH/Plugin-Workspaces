@@ -1,5 +1,5 @@
 import type { Router } from "express";
-import type { PluginContext } from "@termix/plugin-sdk/backend";
+import type { PluginContext } from "@termix-ssh/plugin-sdk/backend";
 import { workspaces } from "./tables.js";
 import { createWorkspaceRepository } from "./repository.js";
 import { registerWorkspaceRoutes } from "./routes.js";

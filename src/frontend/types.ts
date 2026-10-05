@@ -1,4 +1,4 @@
-import type { ShellLayout } from "@termix/plugin-sdk/frontend";
+import type { ShellLayout } from "@termix-ssh/plugin-sdk/frontend";
 
 export type WorkspaceKind = "manual" | "last_session";
 

@@ -1,4 +1,4 @@
-import type { PluginApiClient, ShellLayout } from "@termix/plugin-sdk/frontend";
+import type { PluginApiClient, ShellLayout } from "@termix-ssh/plugin-sdk/frontend";
 import type { Workspace } from "./types";
 
 /**

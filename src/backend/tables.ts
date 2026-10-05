@@ -7,7 +7,7 @@ import {
   text,
   timestamp,
   varchar,
-} from "@termix/plugin-sdk/db";
+} from "@termix-ssh/plugin-sdk/db";
 
 /**
  * Saved tab arrangements, one row per workspace plus one "last_session" row

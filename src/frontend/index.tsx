@@ -1,6 +1,6 @@
 import { LayoutTemplate } from "lucide-react";
 import { toast } from "sonner";
-import type { PanelProps, TermixApp } from "@termix/plugin-sdk/frontend";
+import type { PanelProps, TermixApp } from "@termix-ssh/plugin-sdk/frontend";
 import { WorkspacesPanel } from "./WorkspacesPanel";
 import { createWorkspacesApi } from "./workspaces-api";
 import type { Workspace } from "./types";
