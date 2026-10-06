@@ -6,16 +6,16 @@ import {
 } from "@termix-ssh/plugin-sdk/frontend";
 import { toast } from "sonner";
 import {
+  Copy,
+  ExternalLink,
   LayoutTemplate,
   Loader2,
-  Plus,
   Save,
   Settings2,
   Star,
   Trash2,
 } from "lucide-react";
 import {
-  Badge,
   Button,
   FOLDER_COLORS,
   Input,
@@ -23,6 +23,12 @@ import {
   InlineView,
   EmptyState,
   PanelSearch,
+  FormFooter,
+  AddButton,
+  ListBadge,
+  ListRow,
+  ListRowAction,
+  PanelList,
 } from "@termix-ssh/plugin-sdk/ui";
 import { createWorkspacesApi, type WorkspacesApi } from "./workspaces-api";
 import { errorMessage, type Workspace } from "./types";
@@ -82,20 +88,11 @@ function WorkspaceSaveDialog({
       onOpenChange={(next) => !next && onClose()}
       title={t("newUi.sidebar.workspaces.saveCurrentTitle")}
       footer={
-        <div className="ml-auto flex flex-wrap items-center justify-end gap-2">
-          <Button variant="outline" onClick={onClose}>
-            {t("common.cancel")}
-          </Button>
-          <Button
-            variant="outline"
-            className="border-accent-brand/40 text-accent-brand hover:bg-accent-brand/10 hover:text-accent-brand"
-            onClick={handleSave}
-            disabled={saving}
-          >
-            {saving && <Loader2 className="size-3.5 mr-2 animate-spin" />}
-            {t("common.save")}
-          </Button>
-        </div>
+        <FormFooter
+          onCancel={onClose}
+          onSave={() => void handleSave()}
+          saving={saving}
+        />
       }
     >
       <p className="text-xs text-muted-foreground">
@@ -191,20 +188,11 @@ function WorkspaceRenameDialog({
       onOpenChange={(next) => !next && onClose()}
       title={t("newUi.sidebar.workspaces.rename")}
       footer={
-        <div className="ml-auto flex flex-wrap items-center justify-end gap-2">
-          <Button variant="outline" onClick={onClose}>
-            {t("common.cancel")}
-          </Button>
-          <Button
-            variant="outline"
-            className="border-accent-brand/40 text-accent-brand hover:bg-accent-brand/10 hover:text-accent-brand"
-            onClick={handleSave}
-            disabled={saving}
-          >
-            {saving && <Loader2 className="size-3.5 mr-2 animate-spin" />}
-            {t("common.save")}
-          </Button>
-        </div>
+        <FormFooter
+          onCancel={onClose}
+          onSave={() => void handleSave()}
+          saving={saving}
+        />
       }
     >
       <div className="flex flex-col gap-3">
@@ -250,6 +238,7 @@ function WorkspaceRenameDialog({
 
 function WorkspaceRow({
   workspace,
+  stripe,
   isLastSession,
   onApply,
   onUpdateWithCurrent,
@@ -259,6 +248,7 @@ function WorkspaceRow({
   onSetDefault,
 }: {
   workspace: Workspace;
+  stripe: number;
   isLastSession: boolean;
   onApply: () => void;
   onUpdateWithCurrent: () => void;
@@ -270,109 +260,85 @@ function WorkspaceRow({
   const { t } = useTranslation();
 
   return (
-    <div
-      className="flex flex-col gap-1 border border-border p-2.5 cursor-pointer hover:bg-muted/40 group"
+    <ListRow
+      stripe={stripe}
+      color={workspace.color ?? undefined}
+      tone="muted"
+      dimmed={isLastSession}
+      icon={<LayoutTemplate />}
+      title={
+        isLastSession
+          ? t("newUi.sidebar.workspaces.lastSession")
+          : workspace.name
+      }
       onClick={onApply}
-    >
-      <div className="flex items-center gap-1.5 min-w-0">
-        <span
-          className="size-2.5 shrink-0"
-          style={{ backgroundColor: workspace.color ?? "#6b7280" }}
-        />
-        <span
-          className={`text-xs font-semibold truncate min-w-0 ${isLastSession ? "italic text-muted-foreground" : ""}`}
-        >
-          {isLastSession
-            ? t("newUi.sidebar.workspaces.lastSession")
-            : workspace.name}
-        </span>
-        {workspace.isDefault && (
-          <Star className="size-3 shrink-0 fill-accent-brand text-accent-brand" />
-        )}
-        <Badge variant="secondary" className="shrink-0 ml-auto">
-          {t("newUi.sidebar.workspaces.tabCount", {
-            count: workspace.tabCount,
-          })}
-        </Badge>
-      </div>
-
-      <span className="text-[11px] text-muted-foreground truncate pl-4">
-        {isLastSession
+      badges={
+        <>
+          {workspace.isDefault && (
+            <ListBadge tone="brand">
+              <Star className="fill-current" />
+              {t("newUi.sidebar.workspaces.defaultBadge")}
+            </ListBadge>
+          )}
+          <ListBadge className="ml-auto">
+            {t("newUi.sidebar.workspaces.tabCount", {
+              count: workspace.tabCount,
+            })}
+          </ListBadge>
+        </>
+      }
+      meta={
+        isLastSession
           ? t("newUi.sidebar.workspaces.lastSessionDescription")
           : workspace.lastUsedAt
             ? t("newUi.sidebar.workspaces.lastUsed", {
                 time: timeAgo(workspace.lastUsedAt, t),
               })
-            : t("newUi.sidebar.workspaces.neverUsed")}
-      </span>
-
-      {!isLastSession && (
-        <div className="flex items-center justify-end gap-0.5 opacity-0 group-hover:opacity-100">
-          <Button
-            variant="ghost"
-            size="icon-sm"
-            title={
-              workspace.isDefault
-                ? t("newUi.sidebar.workspaces.unsetDefault")
-                : t("newUi.sidebar.workspaces.setDefault")
-            }
-            onClick={(e) => {
-              e.stopPropagation();
-              onSetDefault();
-            }}
-          >
-            <Star
-              className={`size-3.5 ${workspace.isDefault ? "fill-accent-brand text-accent-brand" : ""}`}
-            />
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon-sm"
-            title={t("newUi.sidebar.workspaces.updateWithCurrent")}
-            onClick={(e) => {
-              e.stopPropagation();
-              onUpdateWithCurrent();
-            }}
-          >
-            <Save className="size-3.5" />
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon-sm"
-            title={t("newUi.sidebar.workspaces.rename")}
-            onClick={(e) => {
-              e.stopPropagation();
-              onRename();
-            }}
-          >
-            <Settings2 className="size-3.5" />
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon-sm"
-            title={t("newUi.sidebar.workspaces.duplicate")}
-            onClick={(e) => {
-              e.stopPropagation();
-              onDuplicate();
-            }}
-          >
-            <Plus className="size-3.5" />
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon-sm"
-            className="hover:text-destructive"
-            title={t("newUi.sidebar.workspaces.deleteWorkspaceTitle")}
-            onClick={(e) => {
-              e.stopPropagation();
-              onDelete();
-            }}
-          >
-            <Trash2 className="size-3.5" />
-          </Button>
-        </div>
-      )}
-    </div>
+            : t("newUi.sidebar.workspaces.neverUsed")
+      }
+      actions={
+        isLastSession ? undefined : (
+          <>
+            <ListRowAction
+              label={
+                workspace.isDefault
+                  ? t("newUi.sidebar.workspaces.unsetDefault")
+                  : t("newUi.sidebar.workspaces.setDefault")
+              }
+              tone={workspace.isDefault ? "brand" : "default"}
+              onClick={onSetDefault}
+            >
+              <Star className={workspace.isDefault ? "fill-current" : ""} />
+            </ListRowAction>
+            <ListRowAction
+              label={t("newUi.sidebar.workspaces.updateWithCurrent")}
+              onClick={onUpdateWithCurrent}
+            >
+              <Save />
+            </ListRowAction>
+            <ListRowAction
+              label={t("newUi.sidebar.workspaces.rename")}
+              onClick={onRename}
+            >
+              <Settings2 />
+            </ListRowAction>
+            <ListRowAction
+              label={t("newUi.sidebar.workspaces.duplicate")}
+              onClick={onDuplicate}
+            >
+              <Copy />
+            </ListRowAction>
+            <ListRowAction
+              label={t("newUi.sidebar.workspaces.deleteWorkspaceTitle")}
+              tone="destructive"
+              onClick={onDelete}
+            >
+              <Trash2 />
+            </ListRowAction>
+          </>
+        )
+      }
+    />
   );
 }
 
@@ -510,100 +476,91 @@ export function WorkspacesPanel({
 
   return (
     <div className="flex flex-col flex-1 min-h-0">
-      <div className="flex items-center gap-2 p-3 border-b border-border shrink-0">
-        <LayoutTemplate className="size-4 text-muted-foreground" />
-        <div className="flex min-w-0 flex-1 flex-col">
-          <span className="truncate text-sm font-semibold">
-            {t("newUi.sidebar.workspaces.title")}
-          </span>
+      <div className="flex shrink-0 items-center gap-2 border-b border-border px-3 py-2">
+        <PanelSearch
+          value={query}
+          onChange={setQuery}
+          placeholder={t("newUi.sidebar.workspaces.search")}
+          fill
+        />
+        <Button variant="outline" size="icon" asChild>
           <a
             href="https://docs.termix.site/features/workspaces"
             target="_blank"
             rel="noreferrer"
-            className="w-fit text-[10px] text-accent-brand hover:underline"
+            title={t("hosts.docsLink")}
+            aria-label={t("hosts.docsLink")}
           >
-            {t("hosts.docsLink")}
+            <ExternalLink className="size-3.5" />
           </a>
-        </div>
-        <Button
-          variant="outline"
-          size="sm"
-          className="shrink-0 border-accent-brand/40 text-accent-brand hover:bg-accent-brand/10 hover:text-accent-brand"
-          onClick={() => setSaveDialogOpen(true)}
-        >
-          <Plus className="size-3.5 mr-1.5" />
-          {t("newUi.sidebar.workspaces.saveCurrent")}
         </Button>
+        <AddButton
+          label={t("newUi.sidebar.workspaces.saveCurrent")}
+          onClick={() => setSaveDialogOpen(true)}
+        />
       </div>
 
-      {allManual.length > 0 && (
-        <div className="shrink-0 border-b border-border px-3 py-2">
-          <PanelSearch
-            value={query}
-            onChange={setQuery}
-            placeholder={t("newUi.sidebar.workspaces.search")}
-            fill
+      <PanelList
+        empty={
+          loading ? (
+            <div className="flex items-center justify-center py-8 text-muted-foreground">
+              <Loader2 className="size-4 animate-spin" />
+            </div>
+          ) : (
+            <EmptyState
+              icon={LayoutTemplate}
+              title={t(
+                q
+                  ? "newUi.sidebar.workspaces.noMatches"
+                  : "newUi.sidebar.workspaces.noWorkspaces",
+              )}
+            />
+          )
+        }
+      >
+        {!loading && lastSession && !q && (
+          <WorkspaceRow
+            key={lastSession.id}
+            stripe={0}
+            workspace={lastSession}
+            isLastSession
+            onApply={() => void handleApplyClick(lastSession)}
+            onUpdateWithCurrent={() => {}}
+            onRename={() => {}}
+            onDuplicate={() => {}}
+            onDelete={() => {}}
+            onSetDefault={() => {}}
           />
-        </div>
-      )}
-
-      <div className="flex-1 min-h-0 overflow-y-auto p-3">
-        {loading ? (
-          <div className="flex items-center justify-center py-8 text-muted-foreground">
-            <Loader2 className="size-4 animate-spin" />
-          </div>
-        ) : allManual.length === 0 && !lastSession ? (
-          <EmptyState
-            icon={LayoutTemplate}
-            title={t("newUi.sidebar.workspaces.noWorkspaces")}
-          />
-        ) : q && manualWorkspaces.length === 0 ? (
-          <EmptyState
-            icon={LayoutTemplate}
-            title={t("newUi.sidebar.workspaces.noMatches")}
-          />
-        ) : (
-          <div className="flex flex-col gap-1.5">
-            {lastSession && (
-              <WorkspaceRow
-                key={lastSession.id}
-                workspace={lastSession}
-                isLastSession
-                onApply={() => void handleApplyClick(lastSession)}
-                onUpdateWithCurrent={() => {}}
-                onRename={() => {}}
-                onDuplicate={() => {}}
-                onDelete={() => {}}
-                onSetDefault={() => {}}
-              />
-            )}
-            {manualWorkspaces.map((workspace) => (
-              <WorkspaceRow
-                key={workspace.id}
-                workspace={workspace}
-                isLastSession={false}
-                onApply={() => void handleApplyClick(workspace)}
-                onUpdateWithCurrent={() => {
-                  void confirm({
-                    title: t(
-                      "newUi.sidebar.workspaces.updateWithCurrentConfirm",
-                      { name: workspace.name },
-                    ),
-                    confirmLabel: t("common.save"),
-                    destructive: false,
-                  }).then((ok) => {
-                    if (ok) handleUpdateWithCurrent(workspace);
-                  });
-                }}
-                onRename={() => setRenameTarget(workspace)}
-                onDuplicate={() => handleDuplicate(workspace)}
-                onDelete={() => void handleDelete(workspace)}
-                onSetDefault={() => handleToggleDefault(workspace)}
-              />
-            ))}
-          </div>
         )}
-      </div>
+        {!loading &&
+          manualWorkspaces.map((workspace, index) => (
+            <WorkspaceRow
+              key={workspace.id}
+              stripe={index + (lastSession && !q ? 1 : 0)}
+              workspace={workspace}
+              isLastSession={false}
+              onApply={() => void handleApplyClick(workspace)}
+              onUpdateWithCurrent={() => {
+                void confirm({
+                  title: t(
+                    "newUi.sidebar.workspaces.updateWithCurrentConfirm",
+                    {
+                      name: workspace.name,
+                    },
+                  ),
+                  confirmLabel: t("common.save"),
+                  destructive: false,
+                }).then((ok) => {
+                  if (ok) handleUpdateWithCurrent(workspace);
+                });
+              }}
+              onRename={() => setRenameTarget(workspace)}
+              onDuplicate={() => handleDuplicate(workspace)}
+              onDelete={() => void handleDelete(workspace)}
+              onSetDefault={() => handleToggleDefault(workspace)}
+            />
+          ))}
+      </PanelList>
 
       <WorkspaceSaveDialog
         open={saveDialogOpen}

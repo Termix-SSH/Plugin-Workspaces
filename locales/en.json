@@ -2,6 +2,7 @@
   "newUi": {
     "sidebar": {
       "workspaces": {
+        "defaultBadge": "Default",
         "title": "Workspaces",
         "saveCurrent": "Save Current",
         "saveCurrentTitle": "Save Current Workspace",
