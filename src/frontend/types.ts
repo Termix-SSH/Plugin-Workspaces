@@ -1,6 +1,6 @@
 import type { ShellLayout } from "@termix-ssh/plugin-sdk/frontend";
 
-export type WorkspaceKind = "manual" | "last_session";
+type WorkspaceKind = "manual" | "last_session";
 
 /** A saved workspace as the routes return it. */
 export interface Workspace {
