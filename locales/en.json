@@ -37,7 +37,6 @@
         "duplicateNameSuffix": "{{name}} (copy)",
         "setDefault": "Set as Default",
         "unsetDefault": "Remove as Default",
-        "defaultBadge": "Default",
         "lastSession": "Last Session",
         "lastSessionDescription": "Automatically updated with your most recent tab arrangement. Apply it to recover what you had open.",
         "lastUsed": "Last used {{time}}",
@@ -56,10 +55,6 @@
   },
   "nav": {
     "workspaces": "Workspaces"
-  },
-  "onboarding": {
-    "workflow_workspaces": "Workspaces",
-    "workflow_workspaces_desc": "Save a set of open tabs and reopen the whole layout later."
   },
   "permissions": {
     "use": {

@@ -87,11 +87,4 @@ export function activate(app: TermixApp): void {
   app.onDispose(() => {
     if (timer) clearTimeout(timer);
   });
-
-  app.registerSlotContribution("onboarding.workflow", {
-    actionId: "workspaces.tip",
-    titleKey: "onboarding.workflow_workspaces",
-    descriptionKey: "onboarding.workflow_workspaces_desc",
-    icon: LayoutTemplate,
-  });
 }
