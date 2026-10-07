@@ -25,14 +25,6 @@ Workspaces saves a set of open tabs with their split layout so you can bring the
 
 <br />
 
-## Services
-
-Provides to other plugins:
-
-- `workspaces.saved`: list a user's saved workspaces
-
-<br />
-
 ## Sponsors
 
 Interested in a paid placement to support development? Email [mail@termix.site](mailto:mail@termix.site).

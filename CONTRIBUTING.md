@@ -13,3 +13,9 @@ npm run format     # format the code with Prettier
 ## Permissions
 
 - `workspaces.use`: save, apply and manage workspaces. Admins and users have it by default.
+
+## Services
+
+Provides to other plugins:
+
+- `workspaces.saved`: list a user's saved workspaces
