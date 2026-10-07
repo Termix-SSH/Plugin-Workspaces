@@ -16,12 +16,6 @@ Workspaces saves a set of open tabs with their split layout so you can bring the
 
 <br />
 
-## Install
-
-Workspaces ships with [Termix](https://github.com/Termix-SSH/Termix). Admins can turn it on or off, update it or install it again from the Plugins tab. Want to see it first? Try the [demo](https://demo.termix.site/), any username and password works.
-
-<br />
-
 ## Features
 
 - Save your tabs and split layout as a named workspace
