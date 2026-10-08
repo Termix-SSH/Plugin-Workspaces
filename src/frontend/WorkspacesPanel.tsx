@@ -32,6 +32,7 @@ import {
 } from "@termix-ssh/plugin-sdk/ui";
 import { createWorkspacesApi, type WorkspacesApi } from "./workspaces-api";
 import { errorMessage, type Workspace } from "./types";
+import { docsUrl } from "./docs";
 
 type Translate = (key: string, options?: Record<string, unknown>) => string;
 
@@ -485,7 +486,7 @@ export function WorkspacesPanel({
         />
         <Button variant="outline" size="icon" asChild>
           <a
-            href="https://docs.termix.site/features/workspaces"
+            href={docsUrl()}
             target="_blank"
             rel="noreferrer"
             title={t("hosts.docsLink")}

@@ -14,6 +14,8 @@
 
 Workspaces saves a set of open tabs with their split layout so you can bring them all back later.
 
+Read the [docs](https://docs.termix.site/plugins/workspaces) to set it up and use it.
+
 <br />
 
 ## Features
