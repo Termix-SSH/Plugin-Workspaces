@@ -41,6 +41,33 @@ describe("workspace repository", () => {
     expect(second.updatedAt).toBe("t2");
   });
 
+  it("keeps one last session when autosaves race", async () => {
+    await Promise.all([
+      repo.upsertLastSession("user-1", '{"tabs":[1]}'),
+      repo.upsertLastSession("user-1", '{"tabs":[2]}'),
+      repo.upsertLastSession("user-1", '{"tabs":[3]}'),
+    ]);
+    const rows = (await repo.listByUser("user-1")).filter(
+      (row) => row.kind === "last_session",
+    );
+    expect(rows).toHaveLength(1);
+    expect(rows[0].payload).toBe('{"tabs":[3]}');
+  });
+
+  it("reuses a last session row another server inserted", async () => {
+    db.sqlite
+      .prepare(
+        "INSERT INTO p_workspaces_workspaces (user_id, name, kind, payload, sync_id) VALUES ('user-1', 'Last Session', 'last_session', '{}', 'other')",
+      )
+      .run();
+    const saved = await repo.upsertLastSession("user-1", '{"tabs":[1]}');
+    const rows = (await repo.listByUser("user-1")).filter(
+      (row) => row.kind === "last_session",
+    );
+    expect(rows).toHaveLength(1);
+    expect(saved.payload).toBe('{"tabs":[1]}');
+  });
+
   it("switches the default without touching another user's", async () => {
     const theirs = await repo.create("user-2", { name: "T", payload: "{}" });
     await repo.setDefault("user-2", theirs.id);
