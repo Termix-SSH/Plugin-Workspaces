@@ -482,28 +482,31 @@ export function WorkspacesPanel({
 
   return (
     <div className="flex flex-col flex-1 min-h-0">
-      <div className="flex shrink-0 items-center gap-2 border-b border-border px-3 py-2">
+      <div className="flex shrink-0 flex-col gap-2 border-b border-border px-3 py-2">
         <PanelSearch
           value={query}
           onChange={setQuery}
           placeholder={t("newUi.sidebar.workspaces.search")}
           fill
         />
-        <Button variant="outline" size="icon" asChild>
-          <a
-            href={docsUrl()}
-            target="_blank"
-            rel="noreferrer"
-            title={t("hosts.docsLink")}
-            aria-label={t("hosts.docsLink")}
-          >
-            <ExternalLink className="size-3.5" />
-          </a>
-        </Button>
-        <AddButton
-          label={t("newUi.sidebar.workspaces.saveCurrent")}
-          onClick={() => setSaveDialogOpen(true)}
-        />
+        <div className="flex items-center gap-2">
+          <AddButton
+            label={t("newUi.sidebar.workspaces.saveCurrent")}
+            onClick={() => setSaveDialogOpen(true)}
+            className="flex-1"
+          />
+          <Button variant="outline" size="icon" asChild>
+            <a
+              href={docsUrl()}
+              target="_blank"
+              rel="noreferrer"
+              title={t("hosts.docsLink")}
+              aria-label={t("hosts.docsLink")}
+            >
+              <ExternalLink className="size-3.5" />
+            </a>
+          </Button>
+        </div>
       </div>
 
       <PanelList
