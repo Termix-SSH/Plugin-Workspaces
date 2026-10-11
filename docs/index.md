@@ -2,7 +2,7 @@ Workspaces saves your open tabs and split layout under a name, so you can bring 
 
 ## Save one
 
-Open the tabs and splits you want, then open **Workspaces** from the sidebar and press **Save Current**. Give it a name and a color.
+Open the tabs and splits you want, then open Workspaces from the sidebar and press Save Current. Give it a name and a color.
 
 ## Open one
 
@@ -11,12 +11,12 @@ Click a workspace in the list and confirm. Your current tabs close and the works
 ## Change one
 
 - **Update with Current** overwrites a workspace with what you have open now.
-- **Rename**, **Duplicate** and delete with the buttons on its row.
+- **Rename**, Duplicate and delete with the buttons on its row.
 - **Set as Default** opens that workspace when you sign in.
 
 ## Last session
 
-Termix keeps your **Last Session** as a workspace on each device, so you can get back what you had open after closing the browser. It stays on that device and doesn't sync.
+Termix keeps your Last Session as a workspace on each device, so you can get back what you had open after closing the browser. It stays on that device and doesn't sync.
 
 ## Sync
 
