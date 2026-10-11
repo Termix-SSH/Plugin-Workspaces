@@ -24,11 +24,6 @@
         "deleteWorkspaceTitle": "Dzēst darbvietu",
         "deleteWorkspaceDescription": "Vai tiešām vēlaties dzēst „{{name}}”? Šo darbību nevar atsaukt.",
         "noWorkspaces": "Pagaidām nav saglabātu darbvietu. Lai sāktu, saglabājiet pašreizējo cilņu izvietojumu.",
-        "tabCount": {
-          "zero": "0 cilnes",
-          "one": "{{count}} cilne",
-          "other": "{{count}} cilnes"
-        },
         "tabCount_zero": "0 cilnes",
         "tabCount_one": "{{count}} cilne",
         "tabCount_other": "{{count}} cilnes",

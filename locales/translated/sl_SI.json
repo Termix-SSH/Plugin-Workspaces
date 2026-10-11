@@ -24,12 +24,6 @@
         "deleteWorkspaceTitle": "Izbriši delovni prostor",
         "deleteWorkspaceDescription": "Ali ste prepričani, da želite izbrisati \"{{name}}\"? Tega dejanja ni mogoče razveljaviti.",
         "noWorkspaces": "Še ni shranjenih delovnih prostorov. Za začetek shranite trenutno razporeditev zavihkov.",
-        "tabCount": {
-          "one": "{{count}} zavihek",
-          "two": "{{count}} zavihka",
-          "few": "{{count}} zavihki",
-          "other": "{{count}} zavihkov"
-        },
         "tabCount_one": "{{count}} zavihek",
         "tabCount_two": "{{count}} zavihka",
         "tabCount_few": "{{count}} zavihki",

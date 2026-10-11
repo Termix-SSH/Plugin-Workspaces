@@ -24,10 +24,6 @@
         "deleteWorkspaceTitle": "Kustuta tööruum",
         "deleteWorkspaceDescription": "Kas soovid kindlasti kustutada „{{name}}“? Seda ei saa tagasi pöörata.",
         "noWorkspaces": "Salvestatud tööruume pole veel. Alusta praeguse vahekaartide paigutuse salvestamisega.",
-        "tabCount": {
-          "one": "{{count}} vahekaart",
-          "other": "{{count}} vahekaarti"
-        },
         "tabCount_one": "{{count}} vahekaart",
         "tabCount_other": "{{count}} vahekaarti",
         "apply": "Rakenda",

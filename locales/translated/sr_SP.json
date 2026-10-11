@@ -24,11 +24,6 @@
         "deleteWorkspaceTitle": "Обриши радни простор",
         "deleteWorkspaceDescription": "Да ли сте сигурни да желите да обришете „{{name}}“? Ово се не може поништити.",
         "noWorkspaces": "Још нема сачуваних радних простора. Сачувајте тренутни распоред табова да бисте почели.",
-        "tabCount": {
-          "one": "{{count}} таб",
-          "few": "{{count}} таба",
-          "other": "{{count}} табова"
-        },
         "tabCount_one": "{{count}} таб",
         "tabCount_few": "{{count}} таба",
         "tabCount_other": "{{count}} табова",

@@ -24,9 +24,6 @@
         "deleteWorkspaceTitle": "ワークスペースの削除",
         "deleteWorkspaceDescription": "「{{name}}」を削除してもよろしいですか？この操作は元に戻せません。",
         "noWorkspaces": "保存されたワークスペースはまだありません。現在のタブの配置を保存して始めましょう。",
-        "tabCount": {
-          "other": "{{count}}タブ"
-        },
         "tabCount_other": "{{count}}タブ",
         "apply": "適用",
         "applyConfirmTitle": "ワークスペースの適用",

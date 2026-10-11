@@ -24,10 +24,6 @@
         "deleteWorkspaceTitle": "Munkaterület törlése",
         "deleteWorkspaceDescription": "Biztosan törölni szeretné a(z) \"{{name}}\" munkaterületet? Ez a művelet nem vonható vissza.",
         "noWorkspaces": "Még nincsenek mentett munkaterületek. Mentse el a jelenlegi lapelrendezést a kezdéshez.",
-        "tabCount": {
-          "one": "{{count}} lap",
-          "other": "{{count}} lap"
-        },
         "tabCount_one": "{{count}} lap",
         "tabCount_other": "{{count}} lap",
         "apply": "Alkalmaz",

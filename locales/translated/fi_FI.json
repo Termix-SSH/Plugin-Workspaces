@@ -24,10 +24,6 @@
         "deleteWorkspaceTitle": "Poista työtila",
         "deleteWorkspaceDescription": "Haluatko varmasti poistaa työtilan \"{{name}}\"? Tätä ei voi peruuttaa.",
         "noWorkspaces": "Ei tallennettuja työtiloja vielä. Tallenna nykyinen välilehtien asettelu aloittaaksesi.",
-        "tabCount": {
-          "one": "{{count}} välilehti",
-          "other": "{{count}} välilehteä"
-        },
         "tabCount_one": "{{count}} välilehti",
         "tabCount_other": "{{count}} välilehteä",
         "apply": "Käytä",

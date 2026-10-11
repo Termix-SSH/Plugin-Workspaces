@@ -24,11 +24,6 @@
         "deleteWorkspaceTitle": "Eliminar espacio de trabajo",
         "deleteWorkspaceDescription": "¿Estás seguro de que quieres eliminar «{{name}}»? Esta acción no se puede deshacer.",
         "noWorkspaces": "Aún no hay espacios de trabajo guardados. Guarda la disposición actual de tus pestañas para empezar.",
-        "tabCount": {
-          "one": "{{count}} pestaña",
-          "many": "{{count}} pestañas",
-          "other": "{{count}} pestañas"
-        },
         "tabCount_one": "{{count}} pestaña",
         "tabCount_many": "{{count}} pestañas",
         "tabCount_other": "{{count}} pestañas",

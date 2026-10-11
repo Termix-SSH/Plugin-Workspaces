@@ -24,10 +24,6 @@
         "deleteWorkspaceTitle": "Verwyder Werkruimte",
         "deleteWorkspaceDescription": "Is jy seker jy wil \"{{name}}\" verwyder? Dit kan nie ongedaan gemaak word nie.",
         "noWorkspaces": "Nog geen gestoorde werkruimtes nie. Stoor jou huidige tabreëling om te begin.",
-        "tabCount": {
-          "one": "{{count}} tab",
-          "other": "{{count}} tabs"
-        },
         "tabCount_one": "{{count}} tab",
         "tabCount_other": "{{count}} tabs",
         "apply": "Toepas",

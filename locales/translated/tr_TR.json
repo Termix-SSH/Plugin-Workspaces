@@ -24,10 +24,6 @@
         "deleteWorkspaceTitle": "Çalışma Alanını Sil",
         "deleteWorkspaceDescription": "\"{{name}}\" silmek istediğinize emin misiniz? Bu işlem geri alınamaz.",
         "noWorkspaces": "Henüz kayıtlı çalışma alanı yok. Başlamak için mevcut sekme düzeninizi kaydedin.",
-        "tabCount": {
-          "one": "{{count}} sekme",
-          "other": "{{count}} sekme"
-        },
         "tabCount_one": "{{count}} sekme",
         "tabCount_other": "{{count}} sekme",
         "apply": "Uygula",

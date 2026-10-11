@@ -24,10 +24,6 @@
         "deleteWorkspaceTitle": "ওয়ার্কস্পেস মুছে ফেলুন",
         "deleteWorkspaceDescription": "আপনি কি নিশ্চিত যে আপনি \"{{name}}\" মুছে ফেলতে চান? এটি পূর্বাবস্থায় ফেরানো যাবে না।",
         "noWorkspaces": "এখনো কোনো সংরক্ষিত ওয়ার্কস্পেস নেই। শুরু করতে আপনার বর্তমান ট্যাবের বিন্যাস সংরক্ষণ করুন।",
-        "tabCount": {
-          "one": "{{count}} ট্যাব",
-          "other": "{{count}} ট্যাব"
-        },
         "tabCount_one": "{{count}} ট্যাব",
         "tabCount_other": "{{count}} ট্যাব",
         "apply": "প্রয়োগ করুন",

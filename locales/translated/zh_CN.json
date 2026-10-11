@@ -24,9 +24,6 @@
         "deleteWorkspaceTitle": "删除工作区",
         "deleteWorkspaceDescription": "确定要删除“{{name}}”吗？此操作无法撤销。",
         "noWorkspaces": "暂无已保存的工作区。保存当前的标签页排列以开始使用。",
-        "tabCount": {
-          "other": "{{count}} 个标签页"
-        },
         "tabCount_other": "{{count}} 个标签页",
         "apply": "应用",
         "applyConfirmTitle": "应用工作区",

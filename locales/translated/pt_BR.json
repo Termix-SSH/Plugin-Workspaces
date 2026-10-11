@@ -24,11 +24,6 @@
         "deleteWorkspaceTitle": "Excluir Espaço de Trabalho",
         "deleteWorkspaceDescription": "Tem certeza de que deseja excluir \"{{name}}\"? Essa ação não pode ser desfeita.",
         "noWorkspaces": "Nenhum espaço de trabalho salvo ainda. Salve o arranjo atual das abas para começar.",
-        "tabCount": {
-          "one": "{{count}} aba",
-          "many": "{{count}} abas",
-          "other": "{{count}} abas"
-        },
         "tabCount_one": "{{count}} aba",
         "tabCount_many": "{{count}} abas",
         "tabCount_other": "{{count}} abas",

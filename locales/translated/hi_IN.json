@@ -24,10 +24,6 @@
         "deleteWorkspaceTitle": "वर्कस्पेस हटाएं",
         "deleteWorkspaceDescription": "क्या आप वाकई \"{{name}}\" को हटाना चाहते हैं? इसे पूर्ववत नहीं किया जा सकता।",
         "noWorkspaces": "अभी तक कोई सेव किया गया वर्कस्पेस नहीं है। शुरू करने के लिए अपनी वर्तमान टैब व्यवस्था को सेव करें।",
-        "tabCount": {
-          "one": "{{count}} टैब",
-          "other": "{{count}} टैब"
-        },
         "tabCount_one": "{{count}} टैब",
         "tabCount_other": "{{count}} टैब",
         "apply": "लागू करें",

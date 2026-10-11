@@ -24,9 +24,6 @@
         "deleteWorkspaceTitle": "ลบพื้นที่ทำงาน",
         "deleteWorkspaceDescription": "คุณแน่ใจหรือไม่ว่าต้องการลบ \"{{name}}\"? การดำเนินการนี้ไม่สามารถย้อนกลับได้",
         "noWorkspaces": "ยังไม่มีพื้นที่ทำงานที่บันทึกไว้ บันทึกการจัดเรียงแท็บปัจจุบันเพื่อเริ่มต้นใช้งาน",
-        "tabCount": {
-          "other": "{{count}} แท็บ"
-        },
         "tabCount_other": "{{count}} แท็บ",
         "apply": "ใช้",
         "applyConfirmTitle": "ใช้พื้นที่ทำงาน",

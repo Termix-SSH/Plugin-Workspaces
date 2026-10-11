@@ -24,12 +24,6 @@
         "deleteWorkspaceTitle": "Ištrinti darbo vietą",
         "deleteWorkspaceDescription": "Ar tikrai norite ištrinti „{{name}}“? Šio veiksmo negalima atšaukti.",
         "noWorkspaces": "Dar nėra išsaugotų darbo vietų. Išsaugokite dabartinį skirtukų išdėstymą, kad pradėtumėte.",
-        "tabCount": {
-          "one": "{{count}} skirtukas",
-          "few": "{{count}} skirtukai",
-          "many": "{{count}} skirtukų",
-          "other": "{{count}} skirtukų"
-        },
         "tabCount_one": "{{count}} skirtukas",
         "tabCount_few": "{{count}} skirtukai",
         "tabCount_many": "{{count}} skirtukų",

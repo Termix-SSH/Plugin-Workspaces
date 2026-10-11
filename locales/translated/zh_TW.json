@@ -24,9 +24,6 @@
         "deleteWorkspaceTitle": "刪除工作區",
         "deleteWorkspaceDescription": "確定要刪除「{{name}}」嗎？此操作無法復原。",
         "noWorkspaces": "尚無已儲存的工作區。儲存目前的分頁配置以開始使用。",
-        "tabCount": {
-          "other": "{{count}} 個分頁"
-        },
         "tabCount_other": "{{count}} 個分頁",
         "apply": "套用",
         "applyConfirmTitle": "套用工作區",

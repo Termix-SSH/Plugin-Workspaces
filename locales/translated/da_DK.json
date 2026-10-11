@@ -24,10 +24,6 @@
         "deleteWorkspaceTitle": "Slet arbejdsområde",
         "deleteWorkspaceDescription": "Er du sikker på, at du vil slette \"{{name}}\"? Dette kan ikke fortrydes.",
         "noWorkspaces": "Ingen gemte arbejdsområder endnu. Gem din nuværende faneropsætning for at komme i gang.",
-        "tabCount": {
-          "one": "{{count}} fane",
-          "other": "{{count}} faner"
-        },
         "tabCount_one": "{{count}} fane",
         "tabCount_other": "{{count}} faner",
         "apply": "Anvend",

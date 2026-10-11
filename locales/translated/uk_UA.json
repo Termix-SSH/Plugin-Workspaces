@@ -24,12 +24,6 @@
         "deleteWorkspaceTitle": "Видалити робочу область",
         "deleteWorkspaceDescription": "Ви впевнені, що хочете видалити «{{name}}»? Цю дію неможливо скасувати.",
         "noWorkspaces": "Ще немає збережених робочих областей. Збережіть поточне розташування вкладок, щоб почати.",
-        "tabCount": {
-          "one": "{{count}} вкладка",
-          "few": "{{count}} вкладки",
-          "many": "{{count}} вкладок",
-          "other": "{{count}} вкладок"
-        },
         "tabCount_one": "{{count}} вкладка",
         "tabCount_few": "{{count}} вкладки",
         "tabCount_many": "{{count}} вкладок",

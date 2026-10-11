@@ -24,9 +24,6 @@
         "deleteWorkspaceTitle": "Hapus Ruang Kerja",
         "deleteWorkspaceDescription": "Apakah Anda yakin ingin menghapus \"{{name}}\"? Tindakan ini tidak dapat dibatalkan.",
         "noWorkspaces": "Belum ada ruang kerja yang disimpan. Simpan pengaturan tab saat ini untuk memulai.",
-        "tabCount": {
-          "other": "{{count}} tab"
-        },
         "tabCount_other": "{{count}} tab",
         "apply": "Terapkan",
         "applyConfirmTitle": "Terapkan Ruang Kerja",

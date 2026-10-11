@@ -24,11 +24,6 @@
         "deleteWorkspaceTitle": "Elimina l'espai de treball",
         "deleteWorkspaceDescription": "Segur que vols eliminar «{{name}}»? Aquesta acció no es pot desfer.",
         "noWorkspaces": "Encara no hi ha espais de treball desats. Desa la disposició actual de les pestanyes per començar.",
-        "tabCount": {
-          "one": "{{count}} pestanya",
-          "many": "{{count}} pestanyes",
-          "other": "{{count}} pestanyes"
-        },
         "tabCount_one": "{{count}} pestanya",
         "tabCount_many": "{{count}} pestanyes",
         "tabCount_other": "{{count}} pestanyes",

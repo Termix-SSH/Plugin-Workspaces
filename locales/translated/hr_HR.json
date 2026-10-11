@@ -24,11 +24,6 @@
         "deleteWorkspaceTitle": "Obriši radni prostor",
         "deleteWorkspaceDescription": "Jeste li sigurni da želite obrisati „{{name}}“? Ova radnja se ne može poništiti.",
         "noWorkspaces": "Još nema spremljenih radnih prostora. Spremite trenutni raspored kartica za početak.",
-        "tabCount": {
-          "one": "{{count}} kartica",
-          "few": "{{count}} kartice",
-          "other": "{{count}} kartica"
-        },
         "tabCount_one": "{{count}} kartica",
         "tabCount_few": "{{count}} kartice",
         "tabCount_other": "{{count}} kartica",

@@ -24,7 +24,7 @@
         "deleteWorkspaceTitle": "Delete Workspace",
         "deleteWorkspaceDescription": "Are you sure you want to delete \"{{name}}\"? This cannot be undone.",
         "noWorkspaces": "No saved workspaces yet. Save your current tab arrangement to get started.",
-        "tabCount": "{{count}} tab",
+        "tabCount_one": "{{count}} tab",
         "tabCount_other": "{{count}} tabs",
         "apply": "Apply",
         "applyConfirmTitle": "Apply Workspace",

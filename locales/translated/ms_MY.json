@@ -24,9 +24,6 @@
         "deleteWorkspaceTitle": "Padam Ruang Kerja",
         "deleteWorkspaceDescription": "Adakah anda pasti mahu memadam \"{{name}}\"? Tindakan ini tidak boleh dibatalkan.",
         "noWorkspaces": "Tiada ruang kerja disimpan lagi. Simpan susunan tab semasa anda untuk bermula.",
-        "tabCount": {
-          "other": "{{count}} tab"
-        },
         "tabCount_other": "{{count}} tab",
         "apply": "Gunakan",
         "applyConfirmTitle": "Gunakan Ruang Kerja",

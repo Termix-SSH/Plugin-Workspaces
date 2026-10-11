@@ -24,11 +24,6 @@
         "deleteWorkspaceTitle": "Elimina spazio di lavoro",
         "deleteWorkspaceDescription": "Sei sicuro di voler eliminare \"{{name}}\"? Questa azione non può essere annullata.",
         "noWorkspaces": "Nessuno spazio di lavoro salvato. Salva la disposizione delle schede correnti per iniziare.",
-        "tabCount": {
-          "one": "{{count}} scheda",
-          "many": "{{count}} schede",
-          "other": "{{count}} schede"
-        },
         "tabCount_one": "{{count}} scheda",
         "tabCount_many": "{{count}} schede",
         "tabCount_other": "{{count}} schede",

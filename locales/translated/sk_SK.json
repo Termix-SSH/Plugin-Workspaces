@@ -24,12 +24,6 @@
         "deleteWorkspaceTitle": "Odstrániť pracovný priestor",
         "deleteWorkspaceDescription": "Naozaj chcete odstrániť „{{name}}“? Túto akciu nie je možné vrátiť späť.",
         "noWorkspaces": "Zatiaľ nie sú žiadne uložené pracovné priestory. Začnite uložením aktuálneho usporiadania kariet.",
-        "tabCount": {
-          "one": "{{count}} karta",
-          "few": "{{count}} karty",
-          "many": "{{count}} kariet",
-          "other": "{{count}} kariet"
-        },
         "tabCount_one": "{{count}} karta",
         "tabCount_few": "{{count}} karty",
         "tabCount_many": "{{count}} kariet",
