@@ -42,7 +42,9 @@
         "lastSessionDescription": "Mis à jour automatiquement avec votre dernier agencement d'onglets. Appliquez-le pour récupérer ce que vous aviez ouvert.",
         "lastUsed": "Dernière utilisation {{time}}",
         "neverUsed": "Jamais appliqué",
-        "tabsSkipped": "Espace de travail appliqué, mais {{count}} onglet(s) ont été ignorés car leur hôte n'existe plus : {{names}}",
+        "tabsSkipped_one": "Espace de travail appliqué, mais {{count}} onglet a été ignoré car son hôte n'existe plus : {{names}}",
+        "tabsSkipped_many": "Espace de travail appliqué, mais {{count}} onglets ont été ignorés car leurs hôtes n'existent plus : {{names}}",
+        "tabsSkipped_other": "Espace de travail appliqué, mais {{count}} onglets ont été ignorés car leurs hôtes n'existent plus : {{names}}",
         "timeAgo": {
           "seconds": "il y a {{count}}s",
           "minutes": "il y a {{count}}min",

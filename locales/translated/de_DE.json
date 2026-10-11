@@ -41,7 +41,8 @@
         "lastSessionDescription": "Wird automatisch mit deiner neuesten Tab-Anordnung aktualisiert. Wende es an, um wiederherzustellen, was du offen hattest.",
         "lastUsed": "Zuletzt verwendet {{time}}",
         "neverUsed": "Nie angewendet",
-        "tabsSkipped": "Arbeitsbereich angewendet, aber {{count}} Tab(s) wurden übersprungen, da deren Host nicht mehr existiert: {{names}}",
+        "tabsSkipped_one": "Arbeitsbereich angewendet, aber {{count}} Tab wurde übersprungen, da der Host nicht mehr existiert: {{names}}",
+        "tabsSkipped_other": "Arbeitsbereich angewendet, aber {{count}} Tabs wurden übersprungen, da ihre Hosts nicht mehr existieren: {{names}}",
         "timeAgo": {
           "seconds": "vor {{count}}s",
           "minutes": "vor {{count}}m",

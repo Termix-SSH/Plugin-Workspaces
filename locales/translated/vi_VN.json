@@ -40,7 +40,7 @@
         "lastSessionDescription": "Tự động cập nhật với cách sắp xếp tab gần nhất của bạn. Áp dụng nó để khôi phục những gì bạn đang mở.",
         "lastUsed": "Sử dụng lần cuối {{time}}",
         "neverUsed": "Chưa từng áp dụng",
-        "tabsSkipped": "Đã áp dụng không gian làm việc, nhưng {{count}} tab bị bỏ qua vì host của chúng không còn tồn tại: {{names}}",
+        "tabsSkipped_other": "Đã áp dụng không gian làm việc, nhưng {{count}} tab đã bị bỏ qua vì máy chủ của chúng không còn tồn tại: {{names}}",
         "timeAgo": {
           "seconds": "{{count}}s trước",
           "minutes": "{{count}}p trước",

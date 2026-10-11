@@ -42,7 +42,9 @@
         "lastSessionDescription": "Actualizat automat cu cel mai recent aranjament al filelor. Aplică-l pentru a recupera ce aveai deschis.",
         "lastUsed": "Folosit ultima dată {{time}}",
         "neverUsed": "Niciodată aplicat",
-        "tabsSkipped": "Spațiul de lucru a fost aplicat, dar {{count}} filă(e) au fost omise deoarece gazda lor nu mai există: {{names}}",
+        "tabsSkipped_one": "Spațiul de lucru a fost aplicat, dar {{count}} tab a fost omis deoarece gazda sa nu mai există: {{names}}",
+        "tabsSkipped_few": "Spațiul de lucru a fost aplicat, dar {{count}} tab-uri au fost omise deoarece gazda lor nu mai există: {{names}}",
+        "tabsSkipped_other": "Spațiul de lucru a fost aplicat, dar {{count}} tab-uri au fost omise deoarece gazda lor nu mai există: {{names}}",
         "timeAgo": {
           "seconds": "acum {{count}}s",
           "minutes": "acum {{count}}m",

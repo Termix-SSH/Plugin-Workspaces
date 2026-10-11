@@ -42,7 +42,9 @@
         "lastSessionDescription": "Automātiski atjaunināta ar jūsu jaunāko cilņu izvietojumu. Piemērojiet to, lai atjaunotu to, kas bija atvērts.",
         "lastUsed": "Pēdējā reize izmantots {{time}}",
         "neverUsed": "Nekad nav piemērots",
-        "tabsSkipped": "Darbvieta piemērota, bet {{count}} cilne(s) tika izlaistas, jo to resursdators vairs neeksistē: {{names}}",
+        "tabsSkipped_zero": "Darbvietas pielāgojums piemērots, bet {{count}} cilnes tika izlaistas, jo to resursdators vairs nepastāv: {{names}}",
+        "tabsSkipped_one": "Darbvietas pielāgojums piemērots, bet {{count}} cilne tika izlaista, jo tās resursdators vairs nepastāv: {{names}}",
+        "tabsSkipped_other": "Darbvietas pielāgojums piemērots, bet {{count}} cilnes tika izlaistas, jo to resursdators vairs nepastāv: {{names}}",
         "timeAgo": {
           "seconds": "pirms {{count}} s",
           "minutes": "pirms {{count}} min",

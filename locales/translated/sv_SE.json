@@ -41,7 +41,8 @@
         "lastSessionDescription": "Uppdateras automatiskt med din senaste flikindelnings. Tillämpa den för att återställa vad du hade öppet.",
         "lastUsed": "Senast använd {{time}}",
         "neverUsed": "Aldrig tillämpad",
-        "tabsSkipped": "Arbetsymla tillämpad, men {{count}} flik(ar) hoppades över eftersom deras värd inte längre finns: {{names}}",
+        "tabsSkipped_one": "Arbetsplatsen tillämpades, men {{count}} flik hoppades över eftersom dess värd inte längre finns: {{names}}",
+        "tabsSkipped_other": "Arbetsplatsen tillämpades, men {{count}} flikar hoppades över eftersom deras värd inte längre finns: {{names}}",
         "timeAgo": {
           "seconds": "{{count}}s sedan",
           "minutes": "{{count}}m sedan",

@@ -41,7 +41,8 @@
         "lastSessionDescription": "Uuendatakse automaatselt sinu viimase vahekaartide paigutusega. Rakenda see, et taastada see, mis sul avatud oli.",
         "lastUsed": "Viimati kasutatud {{time}}",
         "neverUsed": "Pole kunagi rakendatud",
-        "tabsSkipped": "Tööruum rakendatud, kuid {{count}} vahekaart(ja) jäeti vahele, kuna nende hosti ei eksisteeri enam: {{names}}",
+        "tabsSkipped_one": "Tööruum rakendatud, kuid {{count}} vaheleht jäeti vahele, kuna selle hosti enam ei eksisteeri: {{names}}",
+        "tabsSkipped_other": "Tööruum rakendatud, kuid {{count}} vahelehte jäeti vahele, kuna nende hosti enam ei eksisteeri: {{names}}",
         "timeAgo": {
           "seconds": "{{count}}s tagasi",
           "minutes": "{{count}}m tagasi",

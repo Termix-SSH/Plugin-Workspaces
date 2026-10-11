@@ -42,7 +42,9 @@
         "lastSessionDescription": "Atualizado automaticamente com o arranjo mais recente das abas. Aplique-o para recuperar o que estava aberto.",
         "lastUsed": "Usado por último {{time}}",
         "neverUsed": "Nunca aplicado",
-        "tabsSkipped": "Espaço de trabalho aplicado, mas {{count}} aba(s) foram ignoradas porque o host não existe mais: {{names}}",
+        "tabsSkipped_one": "Espaço de trabalho aplicado, mas {{count}} guia foi ignorada porque seu host não existe mais: {{names}}",
+        "tabsSkipped_many": "Espaço de trabalho aplicado, mas {{count}} guias foram ignoradas porque seus hosts não existem mais: {{names}}",
+        "tabsSkipped_other": "Espaço de trabalho aplicado, mas {{count}} guias foram ignoradas porque seus hosts não existem mais: {{names}}",
         "timeAgo": {
           "seconds": "{{count}}s atrás",
           "minutes": "{{count}}m atrás",

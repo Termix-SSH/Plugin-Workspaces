@@ -41,7 +41,8 @@
         "lastSessionDescription": "Opdateres automatisk med din seneste faneropsætning. Anvend den for at gendanne, hvad du havde åbent.",
         "lastUsed": "Senest brugt {{time}} siden",
         "neverUsed": "Aldrig anvendt",
-        "tabsSkipped": "Arbejdsområde anvendt, men {{count}} fane(r) blev sprunget over, fordi deres vært ikke længere findes: {{names}}",
+        "tabsSkipped_one": "Arbejdsområde anvendt, men {{count}} fane blev springet over, fordi værten ikke længere findes: {{names}}",
+        "tabsSkipped_other": "Arbejdsområde anvendt, men {{count}} faner blev springet over, fordi deres vært ikke længere findes: {{names}}",
         "timeAgo": {
           "seconds": "{{count}}s siden",
           "minutes": "{{count}}m siden",

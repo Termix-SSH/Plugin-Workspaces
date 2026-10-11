@@ -40,7 +40,7 @@
         "lastSessionDescription": "가장 최근 탭 배치로 자동으로 업데이트됩니다. 적용하여 이전에 열려 있던 내용을 복원하세요.",
         "lastUsed": "마지막 사용: {{time}}",
         "neverUsed": "적용 기록 없음",
-        "tabsSkipped": "작업 영역이 적용되었지만, 호스트가 더 이상 존재하지 않아 {{count}}개 탭이 건너뛰었습니다: {{names}}",
+        "tabsSkipped_other": "작업 공간이 적용되었지만 호스트가 더 이상 존재하지 않아 {{count}}개의 탭이 건너뛰어졌습니다: {{names}}",
         "timeAgo": {
           "seconds": "{{count}}초 전",
           "minutes": "{{count}}분 전",
