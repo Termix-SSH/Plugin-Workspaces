@@ -1,7 +1,7 @@
 {
   "id": "workspaces",
   "name": "Workspaces",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Save your open tabs and split layouts and reopen them in one click.",
   "author": {
     "name": "Termix"
@@ -21,7 +21,11 @@
     "termix": ">=26.10.0",
     "api": "^1.2"
   },
-  "capabilities": ["db:own", "network:serve", "ui:surface"],
+  "capabilities": [
+    "db:own",
+    "network:serve",
+    "ui:surface"
+  ],
   "provides": [
     {
       "service": "workspaces.saved",
@@ -30,7 +34,11 @@
     }
   ],
   "locales": "locales",
-  "platforms": ["linux", "win32", "darwin"],
+  "platforms": [
+    "linux",
+    "win32",
+    "darwin"
+  ],
   "contributes": {
     "panels": [
       {
@@ -44,10 +52,15 @@
         "name": "use",
         "titleKey": "permissions.use.title",
         "descriptionKey": "permissions.use.description",
-        "defaultRoles": ["admin", "user"]
+        "defaultRoles": [
+          "admin",
+          "user"
+        ]
       }
     ],
-    "syncEntities": ["workspaces"],
+    "syncEntities": [
+      "workspaces"
+    ],
     "settings": {
       "user": [
         {
