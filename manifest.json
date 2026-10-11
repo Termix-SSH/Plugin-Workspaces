@@ -21,11 +21,7 @@
     "termix": ">=26.10.0",
     "api": "^1.2"
   },
-  "capabilities": [
-    "db:own",
-    "network:serve",
-    "ui:surface"
-  ],
+  "capabilities": ["db:own", "network:serve", "ui:surface"],
   "provides": [
     {
       "service": "workspaces.saved",
@@ -34,11 +30,7 @@
     }
   ],
   "locales": "locales",
-  "platforms": [
-    "linux",
-    "win32",
-    "darwin"
-  ],
+  "platforms": ["linux", "win32", "darwin"],
   "contributes": {
     "panels": [
       {
@@ -52,15 +44,10 @@
         "name": "use",
         "titleKey": "permissions.use.title",
         "descriptionKey": "permissions.use.description",
-        "defaultRoles": [
-          "admin",
-          "user"
-        ]
+        "defaultRoles": ["admin", "user"]
       }
     ],
-    "syncEntities": [
-      "workspaces"
-    ],
+    "syncEntities": ["workspaces"],
     "settings": {
       "user": [
         {
