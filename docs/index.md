@@ -10,9 +10,9 @@ Click a workspace in the list and confirm. Your current tabs close and the works
 
 ## Change one
 
-- **Update with Current** overwrites a workspace with what you have open now.
-- **Rename**, Duplicate and delete with the buttons on its row.
-- **Set as Default** opens that workspace when you sign in.
+- Update with Current overwrites a workspace with what you have open now.
+- Rename, Duplicate and delete with the buttons on its row.
+- Set as Default opens that workspace when you sign in.
 
 ## Last session
 
