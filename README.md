@@ -30,6 +30,7 @@ Read the [docs](https://docs.termix.site/plugins/workspaces) to set it up and us
 - Reopen it in one click
 - Recover your last session
 - Syncs between the desktop app and a Termix server
+- Saved workspaces in the command palette
 
 <br />
 

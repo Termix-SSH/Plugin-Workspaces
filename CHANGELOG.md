@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.1.1
+
+### Added
+
+- Saved workspaces in the command palette
+- A read action that lists workspaces, for the assistant and the CLI
+
+### Changed
+
+- Settings use the Termix tile look
+- Needs Termix 26.11.1 or newer
+- Form labels match the rest of Termix
+- Toolbars, loading screens, back buttons and Save bars match the rest of Termix
+
+### Fixed
+
+- A failed save no longer leaves an uncaught error behind the toast
+
 ## 1.1.0
 
 ### Added

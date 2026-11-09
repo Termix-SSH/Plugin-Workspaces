@@ -180,6 +180,26 @@ describe("workspaces panel", () => {
     ).not.toBeNull();
   });
 
+  it("keeps the save form open when saving fails", async () => {
+    const api = stubApi([]);
+    api.post.mockRejectedValue({ response: { data: { error: "Too many" } } });
+    rendered = await renderWithApp(plugin, {
+      manifest,
+      locales,
+      layout: workspace().payload as never,
+      api: api as unknown as PluginApiClient,
+    });
+    rendered.renderPanel("workspaces", { active: true });
+    const ws = locales.newUi.sidebar.workspaces;
+    fireEvent.click(await screen.findByText(ws.saveCurrent));
+    const input = await screen.findByPlaceholderText(ws.namePlaceholder);
+    fireEvent.change(input, { target: { value: "Prod" } });
+    fireEvent.keyDown(input, { key: "Enter" });
+    await waitFor(() => expect(api.post).toHaveBeenCalled());
+    await new Promise((resolve) => setTimeout(resolve, 20));
+    expect(screen.getByPlaceholderText(ws.namePlaceholder)).toBeTruthy();
+  });
+
   it("restores the default workspace once the shell is ready", async () => {
     const saved = workspace({ isDefault: true });
     rendered = await renderWithApp(plugin, {
@@ -212,5 +232,13 @@ describe("workspaces panel", () => {
     expect(rendered.shellCalls.some((c) => c.method === "applyLayout")).toBe(
       false,
     );
+  });
+});
+
+describe("workspaces palette group", () => {
+  it("registers a palette group", async () => {
+    const app = await renderWithApp(plugin, { manifest, locales });
+    expect(app.registered.paletteGroups()).toContain("workspaces");
+    await app.deactivate();
   });
 });

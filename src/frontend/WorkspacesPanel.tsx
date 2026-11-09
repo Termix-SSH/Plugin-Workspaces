@@ -10,7 +10,6 @@ import {
   Copy,
   ExternalLink,
   LayoutTemplate,
-  Loader2,
   Save,
   Settings2,
   SlidersHorizontal,
@@ -31,6 +30,8 @@ import {
   ListRow,
   ListRowAction,
   PanelList,
+  LoadingState,
+  TOOLBAR_FIT,
 } from "@termix-ssh/plugin-sdk/ui";
 import { createWorkspacesApi, type WorkspacesApi } from "./workspaces-api";
 import { errorMessage, type Workspace } from "./types";
@@ -85,6 +86,8 @@ function WorkspaceSaveDialog({
     try {
       await onSave(name.trim(), color);
       onClose();
+    } catch {
+      // onSave already showed the error, keep the form open
     } finally {
       setSaving(false);
     }
@@ -108,7 +111,7 @@ function WorkspaceSaveDialog({
       </p>
       <div className="flex flex-col gap-3">
         <div className="flex flex-col gap-1.5">
-          <label className="text-xs text-muted-foreground">
+          <label className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
             {t("newUi.sidebar.workspaces.nameLabel")}
           </label>
           <Input
@@ -117,13 +120,13 @@ function WorkspaceSaveDialog({
             placeholder={t("newUi.sidebar.workspaces.namePlaceholder")}
             autoFocus
             onKeyDown={(e) => {
-              if (e.key === "Enter") handleSave();
+              if (e.key === "Enter") void handleSave();
             }}
           />
         </div>
 
         <div className="flex flex-col gap-1.5">
-          <label className="text-xs text-muted-foreground">
+          <label className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
             {t("newUi.sidebar.workspaces.colorLabel")}
           </label>
           <div className="flex gap-1.5">
@@ -205,7 +208,7 @@ function WorkspaceRenameDialog({
     >
       <div className="flex flex-col gap-3">
         <div className="flex flex-col gap-1.5">
-          <label className="text-xs text-muted-foreground">
+          <label className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
             {t("newUi.sidebar.workspaces.nameLabel")}
           </label>
           <Input
@@ -213,13 +216,13 @@ function WorkspaceRenameDialog({
             onChange={(e) => setName(e.target.value)}
             autoFocus
             onKeyDown={(e) => {
-              if (e.key === "Enter") handleSave();
+              if (e.key === "Enter") void handleSave();
             }}
           />
         </div>
 
         <div className="flex flex-col gap-1.5">
-          <label className="text-xs text-muted-foreground">
+          <label className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
             {t("newUi.sidebar.workspaces.colorLabel")}
           </label>
           <div className="flex gap-1.5">
@@ -504,7 +507,9 @@ export function WorkspacesPanel({
 
   return (
     <div className="flex flex-col flex-1 min-h-0">
-      <div className="flex shrink-0 flex-col gap-2 border-b border-border px-3 py-2">
+      <div
+        className={`flex shrink-0 flex-col gap-2 border-b border-border px-3 py-2 ${TOOLBAR_FIT}`}
+      >
         <PanelSearch
           value={query}
           onChange={setQuery}
@@ -543,9 +548,7 @@ export function WorkspacesPanel({
       <PanelList
         empty={
           loading ? (
-            <div className="flex items-center justify-center py-8 text-muted-foreground">
-              <Loader2 className="size-4 animate-spin" />
-            </div>
+            <LoadingState />
           ) : (
             <EmptyState
               icon={LayoutTemplate}
