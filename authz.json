@@ -1,0 +1,126 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Termix-SSH/Termix/main/scripts/authz/authz.schema.json",
+  "seed": [
+    {
+      "as": "owner",
+      "method": "POST",
+      "path": "/plugin-api/workspaces",
+      "body": {
+        "name": "authz-own-workspace",
+        "payload": {
+          "version": 1,
+          "tabs": []
+        }
+      },
+      "capture": {
+        "workspaces.item": "id"
+      }
+    }
+  ],
+  "routes": {
+    "GET /plugin-api/workspaces": {
+      "access": "user",
+      "permission": "workspaces.use"
+    },
+    "POST /plugin-api/workspaces": {
+      "access": "user",
+      "permission": "workspaces.use"
+    },
+    "DELETE /plugin-api/workspaces/:id": {
+      "access": "user",
+      "permission": "workspaces.use",
+      "resource": {
+        "kind": "own",
+        "fixture": "workspaces.item"
+      },
+      "params": {
+        "id": "workspaces.item"
+      },
+      "destructive": true
+    },
+    "PATCH /plugin-api/workspaces/:id": {
+      "access": "user",
+      "permission": "workspaces.use",
+      "resource": {
+        "kind": "own",
+        "fixture": "workspaces.item"
+      },
+      "params": {
+        "id": "workspaces.item"
+      }
+    },
+    "POST /plugin-api/workspaces/:id/apply": {
+      "access": "user",
+      "permission": "workspaces.use",
+      "resource": {
+        "kind": "own",
+        "fixture": "workspaces.item"
+      },
+      "params": {
+        "id": "workspaces.item"
+      },
+      "destructive": true
+    },
+    "PUT /plugin-api/workspaces/:id/content": {
+      "access": "user",
+      "permission": "workspaces.use",
+      "resource": {
+        "kind": "own",
+        "fixture": "workspaces.item"
+      },
+      "params": {
+        "id": "workspaces.item"
+      },
+      "body": {
+        "payload": {
+          "version": 1,
+          "tabs": []
+        }
+      }
+    },
+    "POST /plugin-api/workspaces/:id/duplicate": {
+      "access": "user",
+      "permission": "workspaces.use",
+      "resource": {
+        "kind": "own",
+        "fixture": "workspaces.item"
+      },
+      "params": {
+        "id": "workspaces.item"
+      },
+      "body": {
+        "name": "authz-x"
+      }
+    },
+    "POST /plugin-api/workspaces/:id/set-default": {
+      "access": "user",
+      "permission": "workspaces.use",
+      "resource": {
+        "kind": "own",
+        "fixture": "workspaces.item"
+      },
+      "params": {
+        "id": "workspaces.item"
+      }
+    },
+    "POST /plugin-api/workspaces/:id/unset-default": {
+      "access": "user",
+      "permission": "workspaces.use",
+      "resource": {
+        "kind": "own",
+        "fixture": "workspaces.item"
+      },
+      "params": {
+        "id": "workspaces.item"
+      }
+    },
+    "GET /plugin-api/workspaces/last-session": {
+      "access": "user",
+      "permission": "workspaces.use"
+    },
+    "PUT /plugin-api/workspaces/last-session": {
+      "access": "user",
+      "permission": "workspaces.use"
+    }
+  }
+}
