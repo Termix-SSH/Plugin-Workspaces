@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.0
+
+### Changed
+
+- The workspaces panel puts search, its buttons and the save button on one row on Termix 26.11.2 and later
+- Runs in its own process on Termix 26.11.2 and later, with no access to the server beyond what Termix allows it
+- The settings button in the Workspaces panel opens the Workspaces page in Settings
+
 ## 1.1.1
 
 ### Added

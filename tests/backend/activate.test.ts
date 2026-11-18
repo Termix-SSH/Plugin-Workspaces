@@ -49,6 +49,7 @@ describe("workspaces activate", () => {
   it("fails closed without db:own", async () => {
     db = await createTestDb(pluginDir);
     const mock = createMockCtx({
+      sandbox: true,
       pluginId: manifest.id,
       manifest,
       capabilities: ["network:serve", "ui:surface"],
@@ -63,6 +64,7 @@ describe("workspaces activate", () => {
   it("fails closed without network:serve", async () => {
     db = await createTestDb(pluginDir);
     const mock = createMockCtx({
+      sandbox: true,
       pluginId: manifest.id,
       manifest,
       capabilities: ["db:own", "ui:surface"],
